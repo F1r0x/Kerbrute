@@ -95,7 +95,7 @@ Version: dev (43f9ca1) - 03/06/19 - Ronnie Flathers @ropnop
 ```
 
 ### Ataque de rociado de contraseñas
-With `passwordspray`, Kerbrute will perform a horizontal brute force attack against a list of domain users. This is useful for testing one or two common passwords when you have a large list of users. WARNING: this does will increment the failed login count and lock out accounts. This will generate both event IDs [4768 - A Kerberos authentication ticket (TGT) was requested](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4768) and [4771 - Kerberos pre-authentication failed](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4771)
+With `passwordspray`, Kerbrute will perform a horizontal brute force attack against a list of domain users. This is useful for testing one or two common passwords when you have a large list of users. WARNING: this does will increment the failed login count and lock out accounts. This will generate both event IDs [4768 - A Kerberos authentication ticket (TGT) was requested](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4768) and [4771 - Kerberos pre-authentication failed](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4771).
 
 ```
 root@kali:~# ./kerbrute_linux_amd64 passwordspray -d lab.ropnop.com domain_users.txt Password123
@@ -117,7 +117,7 @@ Version: dev (43f9ca1) - 03/06/19 - Ronnie Flathers @ropnop
 ```
 
 ### Brute User
-This is a traditional bruteforce account against a username. Only run this if you are sure there is no lockout policy! This will generate both event IDs [4768 - A Kerberos authentication ticket (TGT) was requested](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4768) and [4771 - Kerberos pre-authentication failed](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4771)
+Este es un ataque de fuerza bruta tradicional contra un nombre de usuario. ¡Solo ejecuta esto si estás seguro de que no hay una política de bloqueo de cuentas! Esto generará los IDs de evento [4768 - Un ticket de autenticación de Kerberos (TGT) fue solicitado](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4768) y [4771 - Falló la preautenticación de Kerberos](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4771).
 
 ```
 root@kali:~# ./kerbrute_linux_amd64 bruteuser -d lab.ropnop.com passwords.lst thoffman
@@ -138,8 +138,6 @@ Version: dev (43f9ca1) - 03/06/19 - Ronnie Flathers @ropnop
 ```
 
 ### Brute Force
-This mode simply reads username and password combinations (in the format `username:password`) from a file or from `stdin` and tests them with Kerberos PreAuthentication. It will skip any blank lines or lines with blank usernames/passwords. This will generate both event IDs [4768 - A Kerberos authentication ticket (TGT) was requested](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4768) and [4771 - Kerberos pre-authentication failed](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4771)
-
 Este modo simplemente lee combinaciones de nombre de usuario y contraseña (en el formato `usuario:contraseña`) desde un archivo o desde `stdin` y las prueba con la PreAutenticación de Kerberos. Se saltará las líneas en blanco o con nombres de usuario/contraseñas vacíos. Esto generará los IDs de evento [4768 - Un ticket de autenticación de Kerberos (TGT) fue solicitado](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4768) y [4771 - Falló la preautenticación de Kerberos](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4771).
 
 ```
@@ -161,8 +159,6 @@ Version: dev (n/a) - 05/11/19 - Ronnie Flathers @ropnop
 ```
 
 ## Instalación
-You can download pre-compiled binaries for Linux, Windows and Mac from the [releases page](https://github.com/ropnop/kerbrute/releases/tag/latest). If you want to live on the edge, you can also install with Go:
-
 Puedes descargar binarios precompilados para Linux, Windows y Mac desde la [página de lanzamientos](https://github.com/ropnop/kerbrute/releases/tag/latest). Si quieres estar al día, también puedes instalarlo con Go:
 
 ```
