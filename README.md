@@ -1,4 +1,4 @@
-<img src="/img1.jpg" alt="bannerkerbrute" width="500" >
+<img src="/img1.jpg" alt="bannerkerbrute" width="400" >
 
 # Kerbrute
 [![CircleCI](https://circleci.com/gh/ropnop/kerbrute.svg?style=svg)](https://circleci.com/gh/ropnop/kerbrute)
