@@ -1,3 +1,5 @@
+<img src="/img1.jpg" alt="bannerkerbrute" style="display: block; margin: auto;" width="500" >
+
 # Kerbrute
 [![CircleCI](https://circleci.com/gh/ropnop/kerbrute.svg?style=svg)](https://circleci.com/gh/ropnop/kerbrute)
 
