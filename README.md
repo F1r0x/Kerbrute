@@ -97,8 +97,6 @@ Version: dev (43f9ca1) - 03/06/19 - Ronnie Flathers @ropnop
 ### Ataque de rociado de contraseñas
 With `passwordspray`, Kerbrute will perform a horizontal brute force attack against a list of domain users. This is useful for testing one or two common passwords when you have a large list of users. WARNING: this does will increment the failed login count and lock out accounts. This will generate both event IDs [4768 - A Kerberos authentication ticket (TGT) was requested](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4768) and [4771 - Kerberos pre-authentication failed](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4771)
 
-Con `passwordspray`, Kerbrute realizará un ataque de fuerza bruta horizontal contra una lista de usuarios de dominio. Esto es útil para probar una o dos contraseñas comunes cuando tienes una lista grande de usuarios. ADVERTENCIA: esto incrementará el conteo de fallos de inicio de sesión y bloqueará cuentas. Generará los IDs de evento [4768 - Un ticket de autenticación de Kerberos (TGT) fue solicitado](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4768) y [4771 - Falló la preautenticación de Kerberos](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4771)
-
 ```
 root@kali:~# ./kerbrute_linux_amd64 passwordspray -d lab.ropnop.com domain_users.txt Password123
 
@@ -141,6 +139,9 @@ Version: dev (43f9ca1) - 03/06/19 - Ronnie Flathers @ropnop
 
 ### Brute Force
 This mode simply reads username and password combinations (in the format `username:password`) from a file or from `stdin` and tests them with Kerberos PreAuthentication. It will skip any blank lines or lines with blank usernames/passwords. This will generate both event IDs [4768 - A Kerberos authentication ticket (TGT) was requested](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4768) and [4771 - Kerberos pre-authentication failed](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4771)
+
+Este modo simplemente lee combinaciones de nombre de usuario y contraseña (en el formato `usuario:contraseña`) desde un archivo o desde `stdin` y las prueba con la PreAutenticación de Kerberos. Se saltará las líneas en blanco o con nombres de usuario/contraseñas vacíos. Esto generará los IDs de evento [4768 - Un ticket de autenticación de Kerberos (TGT) fue solicitado](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4768) y [4771 - Falló la preautenticación de Kerberos](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4771).
+
 ```
 $ cat combos.lst | ./kerbrute -d lab.ropnop.com bruteforce -
 
@@ -159,14 +160,16 @@ Version: dev (n/a) - 05/11/19 - Ronnie Flathers @ropnop
 2019/05/11 18:40:56 >  Done! Tested 7 logins (1 successes) in 0.114 seconds
 ```
 
-## Installing
+## Instalación
 You can download pre-compiled binaries for Linux, Windows and Mac from the [releases page](https://github.com/ropnop/kerbrute/releases/tag/latest). If you want to live on the edge, you can also install with Go:
+
+Puedes descargar binarios precompilados para Linux, Windows y Mac desde la [página de lanzamientos](https://github.com/ropnop/kerbrute/releases/tag/latest). Si quieres estar al día, también puedes instalarlo con Go:
 
 ```
 $ go get github.com/ropnop/kerbrute
 ```
 
-With the repository cloned, you can also use the Make file to compile for common architectures:
+Con el repositorio clonado, también puedes usar el archivo Make para compilarlo para arquitecturas comunes:
 
 ```
 $ make help
@@ -194,7 +197,7 @@ kerbrute_darwin_386        kerbrute_linux_386         kerbrute_windows_386.exe
 kerbrute_darwin_amd64      kerbrute_linux_amd64       kerbrute_windows_amd64.exe
 ```
 
-## Credits
-Huge shoutout to jcmturner for his pure Go implementation of KRB5: https://github.com/jcmturner/gokrb5 . An amazing project and very well documented. Couldn't have done any of this without that project. 
+## Créditos
+Un gran agradecimiento a jcmturner por su implementación pura de KRB5 en Go: https://github.com/jcmturner/gokrb5. Un proyecto increíble y muy bien documentado. No podría haber hecho esto sin ese proyecto.
 
-Shoutout to [audibleblink](https://github.com/audibleblink) for the suggestion and implementation of the `delay` option!
+Gracias a [audibleblink](https://github.com/audibleblink) por la sugerencia e implementación de la opción `delay`.
